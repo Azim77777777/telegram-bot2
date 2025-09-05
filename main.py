@@ -5,6 +5,25 @@ import random
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
+# Слово для регистрации
+@dp.message_handler(lambda message: message.text.lower() in ["сс","ss","регистрация"])
+async def register_text(message: types.Message):
+    user = get_user(message.from_user.id)
+    if not user:
+        cur.execute("INSERT INTO users (user_id) VALUES (?)", (message.from_user.id,))
+        conn.commit()
+        await message.answer("✅ Вы зарегистрированы!\n💰 Ваш баланс: 1,000,000")
+    else:
+        await message.answer("Вы уже зарегистрированы!")
+
+# Слово для старта
+@dp.message_handler(lambda message: message.text.lower() in ["старт","start"])
+async def start_text(message: types.Message):
+    await message.answer(
+        "Привет! Я бот, который поможет тебе играть в мины и добывать ресурсы.\nИспользуй /hb или 'список' для просмотра всех команд.",
+        reply_markup=main_menu()
+    )
+
 # 🔑 Вставь сюда токен от BotFather
 API_TOKEN = "8107743933:AAGRIImvxDpPXlXFwGtI_NMcG5u7kLT2VZ4"
 ADMIN_ID = 7167501974

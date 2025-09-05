@@ -1,0 +1,2 @@
+pip install aiogram==3.0.0a7
+pip install aiosqlite

@@ -9,7 +9,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils import executor
 
 # -------- CONFIG ----------
-TOKEN = "8479187561:AAFDt_mqBGySDVZwJO0ZoaaqNq5-yG27Mvk"   # <- вставь токен
+TOKEN = "7106258581:AAEhc4hIHFrYV4PHNnY9chM13iOwA7XbsoA"   # <- вставь токен
 ADMINS = [123456789]       # <- вставь свой Telegram ID(ы)
 
 bot = Bot(token=TOKEN)
